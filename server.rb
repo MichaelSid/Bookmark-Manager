@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'data_mapper'
 
 get '/' do 
 	erb :index
@@ -21,4 +22,3 @@ DataMapper.finalize
 
 DataMapper.auto_upgrade!
 
-dbtype:
