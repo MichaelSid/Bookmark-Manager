@@ -8,6 +8,8 @@ class Link
 
 	has n, :tags, :through => Resource
 
+  # 'has n' means 'has many', so this means the link has many tags
+
 
 	#This block describes what resource our model will have
 	property :id, Serial #Serial means that it will be auto-incremented for every record
