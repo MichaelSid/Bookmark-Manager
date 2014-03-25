@@ -1,17 +1,7 @@
 require 'sinatra'
 require 'data_mapper'
 
-get '/' do 
-	@links = Link.all
-	erb :index
-end
 
-post '/links' do
-	url = params["url"]
-	title = params["title"]
-	Link.create(:url => url, :title => title)
-	redirect to('/')
-end
 
 
 
@@ -25,6 +15,7 @@ env = ENV["RACK_ENV"] || "development"
 DataMapper.setup(:default, "postgres://localhost/bookmark_manager_#{env}")
 
 require './lib/link'
+require './lib/tag'
 #this needs to be done after datamapper is initialised
 
 #After declaring your models, you should finalise them.
@@ -34,4 +25,27 @@ DataMapper.finalize
 #However, the database tables don't exist yet. Let's tell datamapper to create them
 
 DataMapper.auto_upgrade!
+# auto_upgrade makes non-destructive changes. If your tables don't exist, they will be created
+# but if they do and you changed your schema (e.g. changed the type of one of the properties)
+# they will not be upgraded because that'd lead to data loss.
+# To force the creation of all tables as they are described in your models, even if this
+# leads to data loss, use auto_migrate:
+# DataMapper.auto_migrate!
+# Finally, don't forget that before you do any of that stuff, you need to create a database first.
+
+get '/' do 
+	@links = Link.all
+	erb :index
+end
+
+post '/links' do
+	url = params["url"]
+	title = params["title"]
+	tags = params["tags"].split(" ").map do |tag|
+		#this will either find this tag or create it if it doesn't exist already.
+		Tag.first_or_create(:text => tag)
+	end
+	Link.create(:url => url, :title => title, :tags => tags)
+	redirect to('/')
+end
 
