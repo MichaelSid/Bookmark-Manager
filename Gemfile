@@ -1,5 +1,7 @@
 source 'https://www.rubygems.org/'
 
+'ruby 2.1.0'
+
 #install bcrypt?
 
 #To talk to the database, we'll need the datamapper gem. It's an ORM (Object-relational mapper), which means that it's providing a convenient way 
@@ -11,6 +13,7 @@ gem 'sinatra'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'database_cleaner'
+gem 'capybara'
 
 
 group :development, :test do 

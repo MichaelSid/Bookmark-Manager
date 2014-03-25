@@ -6,13 +6,13 @@ describe Link do
 
 		it "should be created and then retrieved from the db" do
 			#in the beginning our database is empty, so there are no links
-			expect(Link.count).to eq(0)
+			expect(Link.count).to eq(0) #called a class method on Link class
 			#this creates it in the database, so it's stored on the disk
 			Link.create(:title => "Makers Academy", :url => "http://www.makersacademy.com/")
 			# We ask the database how many links we have, it should be 1
 			expect(Link.count).to eq(1)
 			# Let's get the first (and only) link from the database
-			link = Link.first
+			link = Link.first #instance of Link class
 			#Now it has all the properties that it was saved with.
 			expect(link.url).to eq("http://www.makersacademy.com/")
 			expect(link.title).to eq("Makers Academy")

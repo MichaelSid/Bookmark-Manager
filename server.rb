@@ -2,8 +2,19 @@ require 'sinatra'
 require 'data_mapper'
 
 get '/' do 
+	@links = Link.all
 	erb :index
 end
+
+post '/links' do
+	url = params["url"]
+	title = params["title"]
+	Link.create(:url => url, :title => title)
+	redirect to('/')
+end
+
+
+
 
 #we are checking what environment we're in, defaulting to development.
 
