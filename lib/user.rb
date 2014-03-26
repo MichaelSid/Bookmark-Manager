@@ -7,7 +7,7 @@ class User
 	include DataMapper::Resource
 
 	property :id, Serial
-	property :email, String
+	property :email, String, :unique => true, :message => "This email is already taken"
 
 	#this will store both the password and the salt.
 	#It's Text and not String because String holds 50 characters by default.
@@ -37,6 +37,11 @@ class User
 	# The model will not be saved unless both password and password_confirmation are the same.
 	# Read more about it in the documentation. # http://datamapper.org/docs/validations.html
 	validates_confirmation_of :password 
+	
+	#This datamapper validation will check if a record with this email exists before trying to create a new one
+	#In datamapper's case, creating a unique index (see just above) automatically implies the necessity of the validation, 
+	#so this code would be unnecessary.
+	validates_uniqueness_of :email
 
 end
 
