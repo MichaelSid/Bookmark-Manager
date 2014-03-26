@@ -3,7 +3,8 @@
 
 class Link
 
-	#this makes the instances of this class Datamapper resources
+	#this makes the instances of this class Datamapper resources.
+	#This gives you the custom methods you’ll use in your class. The most important method here is property.
 	include DataMapper::Resource
 
 	has n, :tags, :through => Resource

@@ -1,11 +1,3 @@
-require 'sinatra'
-require 'data_mapper'
-
-
-
-
-
-
 #we are checking what environment we're in, defaulting to development.
 
 env = ENV["RACK_ENV"] || "development"
@@ -14,8 +6,6 @@ env = ENV["RACK_ENV"] || "development"
 
 DataMapper.setup(:default, "postgres://localhost/bookmark_manager_#{env}")
 
-require './lib/link'
-require './lib/tag'
 #this needs to be done after datamapper is initialised
 
 #After declaring your models, you should finalise them.
@@ -32,29 +22,3 @@ DataMapper.auto_upgrade!
 # leads to data loss, use auto_migrate:
 # DataMapper.auto_migrate!
 # Finally, don't forget that before you do any of that stuff, you need to create a database first.
-
-get '/' do 
-	@links = Link.all
-	erb :index
-end
-
-post '/links' do
-	url = params["url"]
-	title = params["title"]
-	tags = params["tags"].split(" ").map do |tag|
-		#this will either find this tag or create it if it doesn't exist already.
-		Tag.first_or_create(:text => tag)
-	end
-	Link.create(:url => url, :title => title, :tags => tags)
-	redirect to('/')
-end
-
-get '/tags/:text' do
-	tag = Tag.first(:text => params[:text])
-	@links = tag ? tag.links : []
-	erb :index
-end
-
-
-
-
