@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Helvetica, Arial, Sans-serif;
   background-image: url(/images/linedpaper_@2x.png)
@@ -23,24 +27,27 @@ header #logo {
   display: flex;  
 }
 
-/*anchors for all buttons*/
-a.button {
+.button {
   display: inline-block; /* display inline but have dimensions */
-  width: 80px;
+  width: 110px;
   background-color: #82B743;
   border: 2px solid white;
+  font-size: 16px
   color: white; /*text colour*/
   text-decoration: none; /*no underlining*/
   padding: 5px 10px;
   text-align: center;
+  cursor: pointer; /* pointer looks like a hand */
   border-radius: 4px; /*rounded corners*/
   margin-left: 5px;
   margin-right: 5px;
   text-shadow: 0 0 2px rgba(0,0,0, 0.4); /*for readability*/
 }
 
+
+
 /* a link that has both classes. Overrides the previous declaration*/
-a.button.highlighted {
+.button.highlighted {
   background-color: #b77843;
 }
 
@@ -53,6 +60,10 @@ header #user-links {
   flex: 1; /* http://learnlayout.com/flexbox.html */
   -webkit-flex: 1;
   text-align: right;  
+}
+
+header #user-links > * {
+  display: inline-block;
 }
 
 #links-container {
