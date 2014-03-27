@@ -9,13 +9,18 @@ header {
   background-color: black;
   color: white;
   display: flex;
-  padding: 0 5px;
+  padding: 0 20px;
 }
 
+header a {
+  color: white;
+  text-decoration: none;
+}
+
+
 header #logo {
-  margin: auto 0;
+  margin-right: 20px;
   display: flex;  
-  font-family: Helvetica, Arial, Sans-serif;
 }
 
 /*anchors for all buttons*/
@@ -34,6 +39,10 @@ a.button {
   text-shadow: 0 0 2px rgba(0,0,0, 0.4); /*for readability*/
 }
 
+/* a link that has both classes. Overrides the previous declaration*/
+a.button.highlighted {
+  background-color: #b77843;
+}
 
 /* every immediate child to be vertically centered */
 header > * {
