@@ -17,7 +17,7 @@ gem 'capybara'
 gem 'bcrypt-ruby'
 gem 'rack-flash3'
 gem 'sinatra-partial'
-
+gem 'shotgun'
 
 group :development, :test do 
 	gem 'rspec'
