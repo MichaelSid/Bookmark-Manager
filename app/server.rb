@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/partial'
 require 'rack-flash'
 require 'data_mapper'
 require './lib/link'
@@ -9,6 +10,7 @@ require_relative 'data_mapper_setup'
 
 enable :sessions
 set :session_secret, 'super secret'
+set :partial_template_engine, :erb
 use Rack::Flash
 
 
@@ -81,7 +83,11 @@ post '/sessions' do
   end
 end
 
-
+delete '/sessions' do
+  flash[:notice] = "Good bye!"
+  session[:user_id] = nil
+  redirect to('/')
+end
 
 
 
