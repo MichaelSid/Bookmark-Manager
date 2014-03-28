@@ -41,7 +41,8 @@ class User
 	#This datamapper validation will check if a record with this email exists before trying to create a new one
 	#In datamapper's case, creating a unique index (see just above) automatically implies the necessity of the validation, 
 	#so this code would be unnecessary.
-	validates_uniqueness_of :email
+	
+	# validates_uniqueness_of :email
 
 	def self.authenticate(email, password)
 	  # that's the user who is trying to sign in

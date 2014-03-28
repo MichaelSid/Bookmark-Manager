@@ -66,6 +66,25 @@ header #user-links > * {
   display: inline-block;
 }
 
+h1 {
+	font-size: 22px;
+}
+
+form {
+	text-align: left;
+}
+
+form p {
+	margin: 10px 0;
+}
+
+form input[type="text"], form input[type="password"] {
+	border: 1px solid black;
+	font-size: 16px;
+	width: 400px;
+}
+
+
 #links-container {
   background-color: white;
   margin: 40px;
@@ -97,6 +116,24 @@ header #user-links > * {
   font-size: 12px;
 }
 
+.flash {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;  
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  color: white;
+}
+
+.flash.notice {
+  background-color: rgba(67,183,120,0.75);
+}
+
+.flash.error {
+	background-color: rgba(169,29,42,0.75); 
+}
+
+
 footer {
 	display: flex;
 	background-color: rgba(0,0,0,0.2);
@@ -120,12 +157,4 @@ footer p {
   padding: 5px 25px;
 }
 
-#notice {
-	text-align: center;
-  margin: 5px;
-  padding: 5px;
-  background-color: rgba(67,183,120,0.75);
-  border-radius: 4px;
-  box-shadow: 0 0 3px rgba(0,0,0,0.4);
-  color: white;
-}
+
