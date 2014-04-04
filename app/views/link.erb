@@ -3,6 +3,11 @@
 	<div class='description'>
 		Hi there.
 	</div>
+	<% link.tags.map do |tag| %>
+		<div class = "tags">
+			<%= tag.text %>
+		</div>
+	<% end %>
 	<span class='source'>
 		added yesterday by
 		<a href='#'>michael.sidon@gmail.com</a>

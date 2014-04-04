@@ -168,6 +168,10 @@ footer p {
   height: 70px;
 }
 
+.tags {
+	color: red
+}
+
 /* http://ryanfait.com/resources/footer-stick-to-bottom-of-page/ */
 .wrapper {
   min-height: 100%;

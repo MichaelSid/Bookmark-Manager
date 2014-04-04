@@ -1,6 +1,5 @@
 source 'https://www.rubygems.org/'
 
-'ruby 2.1.0'
 
 #install bcrypt?
 
@@ -9,18 +8,22 @@ source 'https://www.rubygems.org/'
 #Another advantage of datamapper is that is can be used with a variety of database engines, not only postgres. This 
 #implies that we'll need to install an adapter to work with postgres, apart from the datamapper itself.
 
+ruby '2.1.0'
+
 gem 'sinatra'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+gem 'pg'
 gem 'database_cleaner'
-gem 'capybara'
 gem 'bcrypt-ruby'
 gem 'rack-flash3'
 gem 'sinatra-partial'
-gem 'shotgun'
+gem 'mandrill-api'
+gem "rack-flash-session"
 
-group :development, :test do 
-	gem 'rspec'
+group :development, :test do
+	gem 'poltergeist'
+  gem 'capybara'
+  gem 'shotgun'
+  gem 'rspec'
 end
-
-
