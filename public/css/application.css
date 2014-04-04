@@ -104,7 +104,23 @@ form input[type="text"], form input[type="password"] {
   /* for left and right */
   margin: 10px inherit;
   padding: 15px 10px;
-  display: none;
+  /*necessary for absolute positioning of the stars*/
+  position: relative;
+}
+
+.link .star {
+  /* absolute but relative to the first parent that's relative */
+  position: absolute;
+  font-size: 24px;
+  right: 5px;
+  top: 5px;
+  color: yellowgreen;
+  cursor: pointer;
+}
+
+.link .star.solid {
+  opacity: 0;
+  /*not hidden(non-existent), just invisible.*/
 }
 
 .link a.title {
