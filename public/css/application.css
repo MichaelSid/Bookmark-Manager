@@ -104,6 +104,7 @@ form input[type="text"], form input[type="password"] {
   /* for left and right */
   margin: 10px inherit;
   padding: 15px 10px;
+  display: none;
 }
 
 .link a.title {
