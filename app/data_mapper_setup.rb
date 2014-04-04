@@ -1,3 +1,7 @@
+require_relative 'models/link'
+require_relative 'models/tag'
+require_relative 'models/user'
+
 #we are checking what environment we're in, defaulting to development.
 
 env = ENV["RACK_ENV"] || "development"
